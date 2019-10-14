@@ -7,30 +7,54 @@ fn main() {
     let matches = App::new("kvs")
         .version("0.1.0")
         .author("Oke Vese <okevese@gmail.com")
-        .about("a key value store")
+        .about("A key value store")
+        .subcommand(
+            App::new("set")
+                .about("Sets new key values")
+                .arg(
+                    Arg::with_name("key")
+                        .help("Key to be added")
+                        .required(true)
+                )
+                .arg(
+                    Arg::with_name("value")
+                        .help("Value for the attached key")
+                        .required(true)
+                )
+        )
+        .subcommand(
+            App::new("get")
+                .about("Gets a stored key value")
+                .arg(
+                    Arg::with_name("key")
+                        .help("Key to be added")
+                        .required(true)
+                )
+    
+        )
+        /*
         .arg(
-            Arg::with_name("argument")
+            Arg::with_name("arg")
                 .help("some argument to the binary")
-        )
-        .arg(
-            Arg::with_name("set")
-            .multiple(true)
-            .takes_value(true)
-            .help("get a saved key") 
-        )
+        )*/
         .get_matches();
 
     println!("{:?}", matches.usage());
-    
-    if let Some(arg) = matches.value_of("argument") {
+    /*
+    if let Some(arg) = matches.value_of("arg") {
         println!("An arg was passed in: {}", arg);
     } else {
         panic!(2);
+    }*/
+    if matches.is_present("set") {
+        println!("'set' was run.");
     }
 
-    if let Some(key) = matches.value_of("set") {
-        println!("unimplemented");
-        panic!(2);
+    match matches.subcommand_name() {
+        Some("set") => println!("unimplemented"),
+        Some("get") => println!("unimplemented"),
+        _ => panic!()
     }
+
 }
 
