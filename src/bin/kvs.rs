@@ -32,6 +32,16 @@ fn main() {
                 )
     
         )
+        .subcommand(
+            App::new("rm")
+                .about("Deletes a stored key value")
+                .arg(
+                    Arg::with_name("key")
+                        .help("Key to be deleted")
+                        .required(true)
+                )
+    
+        )
         .get_matches();
 
     println!("{:?}", matches.usage());
@@ -41,6 +51,9 @@ fn main() {
             panic!("unimplemented");
         },
         ("get", Some(_get_matches)) => {
+            panic!("unimplemented");
+        },
+        ("rm", Some(_rm_matches)) => {
             panic!("unimplemented");
         },
         ("", None) => {
