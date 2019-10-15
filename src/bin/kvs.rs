@@ -32,28 +32,21 @@ fn main() {
                 )
     
         )
-        /*
-        .arg(
-            Arg::with_name("arg")
-                .help("some argument to the binary")
-        )*/
         .get_matches();
 
     println!("{:?}", matches.usage());
-    /*
-    if let Some(arg) = matches.value_of("arg") {
-        println!("An arg was passed in: {}", arg);
-    } else {
-        panic!(2);
-    }*/
-    if matches.is_present("set") {
-        println!("'set' was run.");
-    }
 
-    match matches.subcommand_name() {
-        Some("set") => println!("unimplemented"),
-        Some("get") => println!("unimplemented"),
-        _ => panic!()
+    match matches.subcommand() {
+        ("set", Some(_set_matches)) => {
+            panic!("unimplemented");
+        },
+        ("get", Some(_get_matches)) => {
+            panic!("unimplemented");
+        },
+        ("", None) => {
+            panic!(2);
+        },
+        _ => unreachable!(),
     }
 
 }
