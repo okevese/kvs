@@ -1,14 +1,18 @@
-
+ 
 
 #[derive(PartialEq)]
 #[derive(Debug)]
 pub struct KvStore {
-
+	key: String,
+	value: String,
 }
 
 impl KvStore {
-	pub fn new() -> KvStore {
-		unimplemented!();
+	pub fn new(key: String, value: String) -> KvStore {
+		KvStore {
+			key: key,
+			value: value,
+		}
 	}
 	
 	pub fn set(&mut self, _key: String, _value: String)  {

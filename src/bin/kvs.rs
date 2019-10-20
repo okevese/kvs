@@ -48,7 +48,7 @@ fn main() {
 
     match matches.subcommand() {
         ("set", Some(_set_matches)) => {
-            panic!("unimplemented");
+            to_set(_set_matches.value_of("key"), _set_matches.value_of("value"));
         },
         ("get", Some(_get_matches)) => {
             panic!("unimplemented");
@@ -60,6 +60,23 @@ fn main() {
             panic!(2);
         },
         _ => unreachable!(),
+    }
+
+    fn to_set(_key: Option<&str>, _value: Option<&str>) {
+        match _key {
+            Some(_key) => {
+                match _value {
+                    Some(_value) => {
+                        let mut _store = KvStore::new(_key.to_owned(), _value.to_owned());
+                        println!("{:?}", _store);
+                    },
+                    None => unimplemented!()
+                }
+            },
+            None => unimplemented!()
+            
+        }
+        // store.set(key, value);
     }
 
 }
