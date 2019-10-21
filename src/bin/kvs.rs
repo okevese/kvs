@@ -51,7 +51,7 @@ fn main() {
             to_set(_set_matches.value_of("key"), _set_matches.value_of("value"));
         },
         ("get", Some(_get_matches)) => {
-            panic!("unimplemented");
+            to_get(_get_matches.value_of("key"));
         },
         ("rm", Some(_rm_matches)) => {
             panic!("unimplemented");
@@ -67,7 +67,11 @@ fn main() {
             Some(_key) => {
                 match _value {
                     Some(_value) => {
-                        let mut _store = KvStore::new(_key.to_owned(), _value.to_owned());
+                        let mut _store = KvStore::new();
+                        println!("{:?}", _store);
+                        _store.set(_key.to_owned(), _value.to_owned());
+                        println!("{:?}", _store);
+                        _store.set("profession".to_owned(), "programmer".to_owned());
                         println!("{:?}", _store);
                     },
                     None => unimplemented!()
@@ -76,7 +80,16 @@ fn main() {
             None => unimplemented!()
             
         }
-        // store.set(key, value);
+    }
+
+
+    fn to_get(_key: Option<&str>) {
+        match _key {
+            Some(_key) => {
+                unimplemented!()
+            },
+            None => unimplemented!()
+        }
     }
 
 }

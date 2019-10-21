@@ -8,15 +8,16 @@ pub struct KvStore {
 }
 
 impl KvStore {
-	pub fn new(key: String, value: String) -> KvStore {
+	pub fn new() -> KvStore {
 		KvStore {
-			key: key,
-			value: value,
+			key: "".to_owned(),
+			value: "".to_owned(),
 		}
 	}
 	
 	pub fn set(&mut self, _key: String, _value: String)  {
-		unimplemented!();
+		self.key = _key;
+		self.value = _value;
 	}
 
 	pub fn get(&self, _key: String) -> Option<String> {
