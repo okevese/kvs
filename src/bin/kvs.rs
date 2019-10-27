@@ -68,7 +68,6 @@ fn main() {
                 match _value {
                     Some(_value) => {
                         let mut _store = KvStore::new();
-                        println!("{:?}", _store);
                         _store.set(_key.to_owned(), _value.to_owned());
                         println!("{:?}", _store);
                         _store.set("profession".to_owned(), "programmer".to_owned());
@@ -86,7 +85,11 @@ fn main() {
     fn to_get(_key: Option<&str>) {
         match _key {
             Some(_key) => {
-                unimplemented!()
+                let mut _store = KvStore::new();
+                match _store.get(_key.to_owned()) {
+                    Some(key) => println!("{:?}", key),
+                    None => println!("Not available")
+                }
             },
             None => unimplemented!()
         }
