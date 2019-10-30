@@ -86,7 +86,7 @@ fn main() {
         match _key {
             Some(_key) => {
                 let mut _store = KvStore::new();
-                match _store.get(_key.to_owned()) {
+                match _store.get(&_key.to_owned()) {
                     Some(key) => println!("{:?}", key),
                     None => println!("Not available")
                 }

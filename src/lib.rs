@@ -17,11 +17,12 @@ impl KvStore {
 		self.entry.insert(_key, _value);
 	}
 
-	pub fn get(&self, _key: String) -> Option<String> {
+	pub fn get(&mut self, _key: &String) -> Option<&String> {
 		self.entry.get(_key)
+		
 	}
 
-	pub fn remove(&self, _key: String) {
+	pub fn remove(&mut self, _key: String) {
 		unimplemented!();
 	}
 }
