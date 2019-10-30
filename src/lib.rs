@@ -17,8 +17,8 @@ impl KvStore {
 		self.entry.insert(_key, _value);
 	}
 
-	pub fn get(&mut self, _key: &String) -> Option<&String> {
-		self.entry.get(_key)
+	pub fn get(&mut self, _key: String) -> Option<&String> {
+		self.entry.get(&_key)
 		
 	}
 
