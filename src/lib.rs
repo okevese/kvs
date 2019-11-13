@@ -22,7 +22,7 @@ impl KvStore {
 	}
 
 	pub fn remove(&mut self, _key: String) {
-		unimplemented!();
+		self.entry.remove(&_key);
 	}
 }
 
